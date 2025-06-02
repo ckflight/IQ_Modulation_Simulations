@@ -27,6 +27,10 @@ This repository contains simulations of various digital modulation techniques us
 ### Explanation:
 In BPSK, each bit is represented by a phase of the carrier signal: bit 1 maps to 0° phase (cosine wave), bit 0 maps to 180° phase (inverted cosine). This means only the in-phase (I) component is used; the quadrature (Q) channel remains zero. The modulation effectively flips the amplitude of the cosine carrier, causing a phase shift of π radians. Because of this simple phase inversion, BPSK is robust and easy to implement.
 
+Cos 0 and Cos 180 are 1 -1. Two phases can be represented with just i component.
+As a result we are actually flipping/changing the amplitude of the I component.
+symbols = 2 * bits - 1    # BPSK: 0 -> -1, 1 -> +1
+
 ### Output:
 - Time-domain waveform (real-valued)
 - Frequency spectrum
@@ -45,6 +49,9 @@ In BPSK, each bit is represented by a phase of the carrier signal: bit 1 maps to
 ### Explanation:
 QPSK encodes 2 bits per symbol by using four constellation points separated by 90° phase increments: 0°, 90°, 180°, and 270°. The I component modulates a cosine carrier, while the Q component modulates a sine carrier, making them orthogonal. This way, phase shifts of the combined carrier represent 4 distinct symbol states, doubling data rate compared to BPSK without increasing bandwidth.
 
+QPSK mapping (sequence is Gray coding)
+00 → (+1, +1), 01 → (−1, +1), 11 → (−1, −1), 10 → (+1, −1)
+Since the overal signal is # I⋅cos(2πft) + Q⋅sin(2πft) each mapped value is assigned to I and Q
 
 ### Output:
 - Constellation diagram (4 points)
