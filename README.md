@@ -50,10 +50,16 @@ symbols = 2 * bits - 1    # BPSK: 0 -> -1, 1 -> +1
 ### Explanation:
 QPSK encodes 2 bits per symbol by using four constellation points separated by 90° phase increments: 0°, 90°, 180°, and 270°. The I component modulates a cosine carrier, while the Q component modulates a sine carrier, making them orthogonal. This way, phase shifts of the combined carrier represent 4 distinct symbol states, doubling data rate compared to BPSK without increasing bandwidth.
 
-QPSK mapping (sequence is Gray coding)
-00 → (+1, +1), 01 → (−1, +1), 11 → (−1, −1), 10 → (+1, −1)
+**QPSK Mapping (Gray Coding):**  
+The bit pairs are mapped as follows:  
+- 00 → (+1, +1)  
+- 01 → (−1, +1)  
+- 11 → (−1, −1)  
+- 10 → (+1, −1)  
 
-Since the overal signal is # I⋅cos(2πft) + Q⋅sin(2πft) each mapped value is assigned to I and Q
+Since the overall transmitted signal is:  
+**I ⋅ cos(2πft) + Q ⋅ sin(2πft)**,  
+each mapped value is assigned to the in-phase (I) and quadrature (Q) components respectively.
 
 ### Output:
 - Constellation diagram (4 points)
