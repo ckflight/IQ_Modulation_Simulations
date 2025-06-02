@@ -24,6 +24,9 @@ This repository contains simulations of various digital modulation techniques us
 - Spectrum shows sinc-like shape due to rectangular pulse
 - Ideal for low-complexity applications
 
+### Explanation:
+In BPSK, each bit is represented by a phase of the carrier signal: bit 1 maps to 0° phase (cosine wave), bit 0 maps to 180° phase (inverted cosine). This means only the in-phase (I) component is used; the quadrature (Q) channel remains zero. The modulation effectively flips the amplitude of the cosine carrier, causing a phase shift of π radians. Because of this simple phase inversion, BPSK is robust and easy to implement.
+
 ### Output:
 - Time-domain waveform (real-valued)
 - Frequency spectrum
@@ -39,6 +42,9 @@ This repository contains simulations of various digital modulation techniques us
 - Symbols lie on 4-point constellation in I-Q plane
 - In-phase (I) and Quadrature (Q) modulate cosine/sine carriers
 
+### Explanation:
+QPSK encodes 2 bits per symbol by using four constellation points separated by 90° phase increments: 0°, 90°, 180°, and 270°. The I component modulates a cosine carrier, while the Q component modulates a sine carrier, making them orthogonal. This way, phase shifts of the combined carrier represent 4 distinct symbol states, doubling data rate compared to BPSK without increasing bandwidth.
+
 ### Output:
 - Constellation diagram (4 points)
 - Time-domain I and Q waveforms
@@ -53,6 +59,9 @@ This repository contains simulations of various digital modulation techniques us
 - Simulates Frequency Modulation using a chirp (linear frequency sweep)
 - Signal sweeps from low to high frequency over time
 - Not a digital modulation but included to show continuous frequency variation
+
+### Explanation:
+Frequency Modulation (FM) encodes information in the instantaneous frequency of the carrier. Here, a chirp signal linearly increases frequency over time, sweeping from a starting frequency to a higher frequency. Unlike phase shift keying, FM uses continuous frequency variation, making it a continuous modulation scheme. The complex baseband representation includes both I and Q components to capture instantaneous phase changes.
 
 ### Output:
 - Time-domain signal
@@ -70,10 +79,8 @@ This repository contains simulations of various digital modulation techniques us
 - Raised Cosine filter applied for pulse shaping (bandwidth control)
 - Matches real-world DACs with interpolation and filtering
 
-### Parameters:
-- Symbol rate: 10 MHz
-- DAC sampling rate: 100 MHz (10× oversampling)
-- Filter: Raised Cosine (roll-off: 0.35)
+### Explanation:
+16-QAM combines amplitude and phase modulation to transmit 4 bits per symbol, resulting in 16 distinct constellation points arranged in a 4x4 grid. Each axis (I and Q) carries 2 bits via Gray coding to minimize bit errors. Both amplitude levels and phase shifts vary to form unique symbols. Raised cosine filtering is applied to smooth the signal transitions, reducing intersymbol interference and controlling bandwidth. The upsampling simulates DAC oversampling before pulse shaping.
 
 ### Output:
 - 16-QAM constellation (before and after pulse shaping)
@@ -91,11 +98,8 @@ This repository contains simulations of various digital modulation techniques us
 - Modulation: QPSK on each subcarrier
 - Demonstrates frequency-domain orthogonality
 
-### Parameters:
-- Sampling rate: 20 MHz
-- FFT size: 64
-- CP length: 16
-- Active subcarriers: ±26 (Wi-Fi 802.11a style)
+### Explanation:
+Orthogonal Frequency Division Multiplexing (OFDM) splits data across multiple orthogonal subcarriers, each modulated using QPSK. The inverse FFT (IFFT) converts frequency-domain symbols into time-domain samples, combining all subcarriers into a single composite signal. A cyclic prefix (copy of the end of the symbol) is added to mitigate intersymbol interference caused by multipath. This technique improves spectral efficiency and robustness against channel fading.
 
 ### Output:
 - I/Q waveforms (time domain)
