@@ -9,11 +9,11 @@ This repository contains simulations of various digital modulation techniques us
 
 ## 📁 Contents
 
-- `bpsk.py` – Binary Phase Shift Keying
-- `qpsk.py` – Quadrature Phase Shift Keying
-- `fm_chirp.py` – Frequency Modulation using Chirp signal
-- `qam16_raised_cosine.py` – 16-QAM with Raised Cosine Pulse Shaping
-- `ofdm_qpsk_wifi.py` – OFDM using QPSK modulation (Wi-Fi 802.11a style)
+- `iq_bpsk.py` – Binary Phase Shift Keying
+- `iq_qpsk.py` – Quadrature Phase Shift Keying
+- `iq_chirp.py` – Frequency Modulation using Chirp signal
+- `iq_qam16.py` – 16-QAM with Raised Cosine Pulse Shaping
+- `iq_ofdm.py` – OFDM using QPSK modulation (Wi-Fi 802.11a style)
 
 ---
 
