@@ -73,6 +73,15 @@ Since the overal signal is # I⋅cos(2πft) + Q⋅sin(2πft) each mapped value i
 ### Explanation:
 Frequency Modulation (FM) encodes information in the instantaneous frequency of the carrier. Here, a chirp signal linearly increases frequency over time, sweeping from a starting frequency to a higher frequency. Unlike phase shift keying, FM uses continuous frequency variation, making it a continuous modulation scheme. The complex baseband representation includes both I and Q components to capture instantaneous phase changes.
 
+### Phase and Frequency Relationship in LFM Chirp
+
+The phase phi(t) in a linear frequency modulated (LFM) chirp is proportional to the square of time (t²), causing the phase to accumulate faster as time increases. This quadratic increase in phase leads to a linearly increasing instantaneous frequency, because frequency is the derivative of phase with respect to time. As a result, the frequency sweeps linearly from a starting value to a higher value, creating the characteristic chirp signal.
+
+
+phi = 2 * np.pi * (0 * t + 0.5 * K * t**2)
+
+As the phase increases with t changes, the frequency has to increase for phase to change faster.
+
 ### Output:
 - Time-domain signal
 - Spectrogram (shows frequency sweep visually)
