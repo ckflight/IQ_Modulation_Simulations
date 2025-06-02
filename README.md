@@ -29,6 +29,7 @@ In BPSK, each bit is represented by a phase of the carrier signal: bit 1 maps to
 
 Cos 0 and Cos 180 are 1 -1. Two phases can be represented with just i component.
 As a result we are actually flipping/changing the amplitude of the I component.
+
 symbols = 2 * bits - 1    # BPSK: 0 -> -1, 1 -> +1
 
 ### Output:
@@ -51,6 +52,7 @@ QPSK encodes 2 bits per symbol by using four constellation points separated by 9
 
 QPSK mapping (sequence is Gray coding)
 00 → (+1, +1), 01 → (−1, +1), 11 → (−1, −1), 10 → (+1, −1)
+
 Since the overal signal is # I⋅cos(2πft) + Q⋅sin(2πft) each mapped value is assigned to I and Q
 
 ### Output:
